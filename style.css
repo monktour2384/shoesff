@@ -1,0 +1,302 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  display: block;
+  grid-template-columns: 300px 1fr;
+  grid-template-rows: auto auto 1fr auto;
+  grid-template-areas:
+    "header header"
+    "nav nav"
+    "aside main"
+    "aside footer";
+  min-height: 100vh;
+  background-color: rgb(252, 249, 228);
+}
+
+header {
+  grid-area: header;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(41, 47, 47);
+  color: white;
+  font-size: 2rem;
+  font-family: "Lobster", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+nav {
+  grid-area: nav;
+  background-color: rgb(165, 62, 60);
+  display: flex;
+  align-items: center;
+  padding: 2rem 2rem;
+  position: sticky;
+  top: 0;
+}
+
+nav .fa-bars {
+  color: white;
+  cursor:pointer;
+}
+
+nav .white {
+  color: white;
+}
+
+nav .logos {
+  display: flex;
+  flex: 3;
+  gap: 3rem;
+  justify-content: center;
+}
+
+nav .logos i {
+  color: white;
+  cursor: pointer;
+}
+nav ul {
+  display: flex;
+  flex: 2;
+  justify-content: space-around;
+}
+
+
+nav ul li {
+  list-style: none;
+}
+
+
+
+nav ul li a {
+  text-decoration: none;
+  color: rgb(161, 142, 64);
+  font-size: 1.2rem;
+  font-family: "Lobster", sans-serif;
+  font-weight: 400;
+  font-style: normal;aaaaaa
+}
+
+
+
+nav ul li a:hover {
+  background-color: rgb(153, 67, 65);
+  color: white;
+}
+
+nav ul li:hover > ul {
+  visibility: visible;
+  opacity: 1;
+}
+
+nav ul ul {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+  padding-top: 20px;
+}
+
+nav ul ul li {
+  padding: 10px 0
+}
+
+nav ul ul ul {
+  position: absolute;
+  left: 2rem;
+}
+
+
+aside {
+  grid-area: aside;
+  position: sticky;
+  top: 88px;
+  height: calc(100vh - 88px);
+  background-color: rgb(41, 47, 47);
+  color: white;
+  display: none;
+}
+
+aside .accordion {
+  margin-top: 2rem;
+
+}
+
+aside .accordion li {
+  text-align: center;
+  padding: 3rem 0;
+}
+
+aside .accordion li label {
+  display: flex;
+  justify-content: space-around;
+}
+
+aside .accordion li label span {
+  transform: rotate(90deg)
+}
+
+aside .accordion li label + input {
+  display: none;
+}
+
+aside .accordion label + input:checked + .content ul{
+ max-height: 400px;
+ transition: max-height .5s
+}
+
+aside .accordion li label:hover{
+  background-color: rgb(153, 67, 65);
+  cursor: pointer;
+}
+aside .accordion .content ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  color: black;
+  overflow: hidden;
+  max-height: 0;
+}
+
+aside .accordion .content ul li {
+  padding-top: 20px;
+  list-style: none;
+}
+
+
+aside .fa-x {
+  position: absolute;
+  top: 10px; 
+  right: 10px;
+  cursor:pointer;
+}
+
+main {
+  grid-area: main;
+}
+
+main .banner {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto;
+  grid-template-areas: 
+  "banner1 banner1"
+  "banner2 banner2";
+  row-gap: 2rem;
+  width: auto;
+  margin-top: 2rem;
+}
+
+main img {
+  width: 100%;
+}
+
+
+main .banner .banner1 {
+  grid-area: banner1;
+  display: flex;
+  align-items: center;
+}
+
+main .banner img {
+  width: 50%
+}
+
+main .banner .banner2 {
+  grid-area: banner2;
+  display: flex;
+  align-items: center;
+  width: 100%
+}
+
+main section {
+  margin-top: 3rem;
+
+}
+
+main section ul {
+  display: flex;
+  justify-content: center;
+  padding: 3rem 0
+}
+
+main section ul li {
+  list-style: none;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  padding: 0 5rem;
+  font-size: 2rem;
+}
+
+main section ul li label {
+  cursor: pointer;
+}
+
+main section ul li label:hover {
+  background-color: rgb(153, 67, 65);
+  color: white;
+}
+
+
+
+main section ul li .content ul {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+main section ul li .content ul li a{
+  text-decoration: none;
+  color: white
+}
+
+main section ul li .content ul li a:hover {
+  background-color: red;
+}
+
+main section ul li label + input {
+  display: none;
+}
+
+main section ul li .content  {
+  max-height: 0;
+  overflow: hidden;
+  background-color: rgb(153, 67, 65)
+}
+
+main section ul li  label + input:checked + .content {
+  max-height: 400px;
+}
+
+footer {
+  grid-area: footer;
+}
+
+
+@media(max-width: 900px){
+  
+  nav ul  {
+    display: none;
+  }
+
+  aside {
+    top: 80px;
+    height: calc(100vh-80px)
+  }
+
+
+  
+  main .banner1 {
+    flex-direction: column;
+  }
+   main .banner2 {
+    flex-direction: column;
+  }
+}
